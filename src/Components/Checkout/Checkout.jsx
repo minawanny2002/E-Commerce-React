@@ -36,7 +36,7 @@ const Checkout = () => {
 
         } else if (formValues.submitType === "online") {
             console.log("onlineeeeeeee");
-            onlinePayment(formValues, 'https://minawanny2002.github.io/E-Commerce-React/#');
+            onlinePayment(formValues, 'https://www.google.com');
 
         }
 
@@ -101,7 +101,7 @@ const Checkout = () => {
                 if (apiResponse.data.status == 'success') {
                     console.log(apiResponse.data.session.url);
                     
-                    window.location.href = apiResponse.data.session.url;
+                    // window.location.href = apiResponse.data.session.url;
                 }
                 setisLoading2(false)
                 // cartOfUser();
@@ -110,7 +110,8 @@ const Checkout = () => {
             })
             .catch((error) => {
                 setisLoading2(false)
-
+                console.log(error);
+                
                 // toast.error("No Carts To Be Paid")
 
             })
