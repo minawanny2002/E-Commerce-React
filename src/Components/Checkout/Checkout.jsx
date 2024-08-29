@@ -99,6 +99,8 @@ const Checkout = () => {
         })
             .then((apiResponse) => {
                 if (apiResponse.data.status == 'success') {
+                    console.log(apiResponse.data.session.url);
+                    
                     window.location.href = apiResponse.data.session.url;
                 }
                 setisLoading2(false)
