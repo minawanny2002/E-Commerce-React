@@ -33,7 +33,7 @@ const Checkout = () => {
 
         } else if (formValues.submitType === "online") {
             console.log("onlineeeeeeee");
-            onlinePayment(formValues,'http://localhost:5173');
+            onlinePayment(formValues,'https://minawanny2002.github.io/E-Commerce-React');
 
         }
 
