@@ -116,7 +116,7 @@ export const ProductCard = () => {
         <div className='relative'>
             {apiResponse.isLoading || addCartLoading ? <div className='z-50 flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 bg-black opacity-[0.8]'>  <GridLoader color={"#15803d"} loading={apiResponse.isLoading||setaddCartLoading} size={40} /></div> : null}
             <div className='overflow-hidden flex flex-wrap justify-center lg:p-10 p-5 gap-y-4 items-center'>
-                {apiResponse?.data?.data?.data.map((product, idx) => <div key={idx} className='w-full   md:w-1/3 lg:w-1/5 flex flex-wrap justify-center items-center'>
+                {apiResponse?.data?.data?.data.map((product, idx) => <div key={idx} className='w-full border-2 rounded-xl p-3 md:border-0 md:p-0 lg:border-0 lg:p-0  md:w-1/3 lg:w-1/5 flex flex-wrap justify-center items-center'>
                     <Link to={`/productdetails/${product._id}/${product.category.name}`}>
                         <div className="w-full  md:h-[500px] lg:h-2/3 max-w-sm  bg-white   md:border-none md:rounded-none md:shadow-none lg:border-none lg:rounded-none lg:shadow-none">
 
@@ -151,8 +151,8 @@ export const ProductCard = () => {
                             </div>
                         </div>
                     </Link>
-                    <div className='mt-5 flex flex-row justify-between items-center w-full px-16 md:px-5 lg:px-5'>
-                        <div className='w-3/4'><button onClick={() => { addTocart(product._id) }} className="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-0 lg:px-6 py-2.5 text-center "><i className="fa-solid fa-cart-shopping me-5"></i>Add To Cart</button></div>
+                    <div className='mt-5 flex flex-row justify-between items-center w-full px-5 md:px-5 lg:px-5 '>
+                        <div className='w-3/5 md:w-3/4 lg:w-3/4'><button onClick={() => { addTocart(product._id) }} className="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-0 lg:px-6 py-2.5 text-center "><i className="fa-solid fa-cart-shopping me-5"></i>Add To Cart</button></div>
                         <div className='w-1/5'><button className="w-full flex items-center justify-center font-medium rounded-lg text-sm px-5 py-2.5 text-center ">  <i className={`fa-regular fa-heart text-3xl cursor-pointer transition-colors duration-300 ease-in-out ${redHearts[product._id] ? 'fa-solid text-red-500' : 'text-grey-900'}`}
                             onClick={() => handleClick(product._id)}></i></button></div>
                     </div>

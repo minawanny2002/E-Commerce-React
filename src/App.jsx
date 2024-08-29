@@ -35,7 +35,7 @@ function App() {
       
       path: "",
       element: <Layout />,
-      // errorElement:<Error/>,
+      errorElement:<Error/>,
       children: [
         
         { path: "", element: <ProtectedRoute><Home /></ProtectedRoute> },

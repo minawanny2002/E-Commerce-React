@@ -179,7 +179,7 @@ const ProductDetails = () => {
 
             {/* realted products */}
             <div className='flex flex-wrap justify-center lg:p-10 p-5 gap-y-4 items-center '>
-                {sameCatProd ? sameCatProd.map((product, idx) => <div key={idx} className='w-full   md:w-1/3 lg:w-1/5 flex flex-wrap justify-center items-center'>
+                {sameCatProd ? sameCatProd.map((product, idx) => <div key={idx} className='w-full border-2 rounded-xl p-3 md:border-0 md:p-0 lg:border-0 lg:p-0   md:w-1/3 lg:w-1/5 flex flex-wrap justify-center items-center'>
                     <div onClick={() => { navigate(`/productdetails/${product._id}/${product.category.name}`); }} className="w-full  md:h-[500px] lg:h-2/3 max-w-sm  bg-white   rounded-lg  md:border-none md:rounded-none md:shadow-none lg:border-none lg:rounded-none lg:shadow-none">
                         <a href="#">
                             <img className="p-8 rounded-t-lg" src={product.images[0]} alt="product image" />
@@ -213,8 +213,8 @@ const ProductDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='mt-5 flex flex-row justify-between items-center w-full px-16 md:px-5 lg:px-5'>
-                        <div className='w-3/4'><button onClick={() => { addTocart(product._id) }} className="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-0 lg:px-6 py-2.5 text-center "><i className="fa-solid fa-cart-shopping me-5"></i>Add To Cart</button></div>
+                    <div className='mt-5 flex flex-row justify-between items-center w-full px-5 md:px-5 lg:px-5'>
+                        <div className='w-3/5 md:w-3/4 lg:w-3/4'><button onClick={() => { addTocart(product._id) }} className="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-0 lg:px-6 py-2.5 text-center "><i className="fa-solid fa-cart-shopping me-5"></i>Add To Cart</button></div>
                         <div className='w-1/5'><button className="w-full flex items-center justify-center font-medium rounded-lg text-sm px-5 py-2.5 text-center ">  <i className={`fa-regular fa-heart text-3xl cursor-pointer transition-colors duration-300 ease-in-out ${redHearts[product._id] ? 'fa-solid text-red-500' : 'text-grey-900'}`}
                             onClick={() => handleClick(product._id)}></i></button></div>
 

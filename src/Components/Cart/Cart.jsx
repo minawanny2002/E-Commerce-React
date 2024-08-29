@@ -81,9 +81,9 @@ const Cart = () => {
     <>
       {isLoading ? <div className='z-50 flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 bg-black opacity-[0.8]'><GridLoader color={"#15803d"} loading={isLoading } size={40} /></div> : null}
       <div className="container p-10 md:p-16 lg:p-16">
-        <h2 className="text-5xl font-bold italic font-mono mb-4 text-center text-green-600">Shopping Cart</h2>
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-2xl font-bold text-black">Total Cart Price : <span className='text-green-600'>{cartPrice ? cartPrice : null}</span></span>
+        <h2 className="text-5xl font-bold italic font-mono mb-4 text-center text-green-600">Cart</h2>
+        <div className="text-center flex items-center justify-center mb-4">
+          <span className="text-2xl text-center font-bold text-black">Total Cart Price : <span className='text-green-600'>{cartPrice ? cartPrice : null}</span></span>
         </div>
         {myCart ? myCart.map((product) => <div key={product._id} className="mb-5 p-4 rounded-lg w-full flex items-center justify-center bg-gray-100">
           <div className="w-full flex flex-col md:flex-row lg:flex-row items-center md:justify-center lg:justify-center bg-white p-4 rounded-lg shadow-md">

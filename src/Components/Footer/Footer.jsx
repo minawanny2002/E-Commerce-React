@@ -1,4 +1,6 @@
 import React from 'react';
+import appstore from "./../../../public/5a902db97f96951c82922874.png"
+import playstore from "./../../../public/5a902dbf7f96951c82922875.png"
 
 const Footer = () => {
     return (
@@ -27,8 +29,8 @@ const Footer = () => {
                         </div>
                         <div className="flex flex-col md:flex-col lg:flex-row justify-start items-center mb-4 md:space-x-4 lg:space-x-4 ">
                             <h2 className="text-lg text-center font-semibold mb-2">Get Deliveries With FreshCart </h2>
-                            <img src="public\5a902db97f96951c82922874.png" alt="App Store" className="h-10" />
-                            <img src="public\5a902dbf7f96951c82922875.png" alt="Google Play" className="h-14" />
+                            <img src={appstore}alt="App Store" className="h-10" />
+                            <img src={playstore} alt="Google Play" className="h-14" />
                         </div>
                     </div>
                 </div>
