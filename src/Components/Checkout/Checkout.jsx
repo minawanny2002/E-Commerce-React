@@ -14,8 +14,11 @@ import { cartContext } from '../../Context/CartContext';
 const Checkout = () => {
     const [isLoading1, setisLoading1] = useState(false);
     const [isLoading2, setisLoading2] = useState(false);
+    let baseUrl = 'https://minawanny2002.github.io/E-Commerce-React';
+    let path = '/allorders';
+    let finalUrl = `${baseUrl}/#${path}`;
 
-    const { cartID,getUserCart,cartCounter,setcartCounter,deleteAllCart } = useContext(cartContext);
+    const { cartID, getUserCart, cartCounter, setcartCounter, deleteAllCart } = useContext(cartContext);
     function myValidation() {
 
         const validator = Yup.object().shape({
@@ -33,21 +36,21 @@ const Checkout = () => {
 
         } else if (formValues.submitType === "online") {
             console.log("onlineeeeeeee");
-            onlinePayment(formValues,'https://minawanny2002.github.io/E-Commerce-React/#');
+            onlinePayment(formValues, 'https://minawanny2002.github.io/E-Commerce-React/#');
 
         }
 
     }
     async function cartOfUser() {
         const theCart = await getUserCart();
-        
-        if(theCart.data.status=='success'){
-            
+
+        if (theCart.data.status == 'success') {
+
             setcartCounter(theCart.data.numOfCartItems)
         }
 
-    
-      }
+
+    }
 
     function cashPayment(formValues) {
         setisLoading1(true);
@@ -60,26 +63,26 @@ const Checkout = () => {
                 }
 
             }, {
-                headers:{
-                    token:localStorage.getItem('userToken'),
-                }
+            headers: {
+                token: localStorage.getItem('userToken'),
+            }
         })
-        .then( (apiResponse)=> {
-            console.log(apiResponse);
-            cartOfUser();
-            toast.success("Cash Payment Done");
-            delCart();
-            setisLoading1(false)
-            
-        })
-        .catch( (error)=> {
-            toast.error("No Carts To Be Paid")
-            setisLoading1(false)
-            
-        })        
+            .then((apiResponse) => {
+                console.log(apiResponse);
+                cartOfUser();
+                toast.success("Cash Payment Done");
+                delCart();
+                setisLoading1(false)
+
+            })
+            .catch((error) => {
+                toast.error("No Carts To Be Paid")
+                setisLoading1(false)
+
+            })
     }
 
-    function onlinePayment(formValues ,url){
+    function onlinePayment(formValues, url) {
         setisLoading2(true);
         axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartID}?url=${url}`,
             {
@@ -90,26 +93,25 @@ const Checkout = () => {
                 }
 
             }, {
-                headers:{
-                    token:localStorage.getItem('userToken'),
-                }
-        })
-        .then( (apiResponse)=> {
-            if(apiResponse.data.status=='success')
-            {
-                window.location.href=apiResponse.data.session.url;
+            headers: {
+                token: localStorage.getItem('userToken'),
             }
-            setisLoading2(false)
-            // cartOfUser();
-            // toast.success("Cash Payment Done");
-            
         })
-        .catch( (error)=> {
-            setisLoading2(false)
-            
-            // toast.error("No Carts To Be Paid")
-            
-        })
+            .then((apiResponse) => {
+                if (apiResponse.data.status == 'success') {
+                    window.location.href = apiResponse.data.session.url;
+                }
+                setisLoading2(false)
+                // cartOfUser();
+                // toast.success("Cash Payment Done");
+
+            })
+            .catch((error) => {
+                setisLoading2(false)
+
+                // toast.error("No Carts To Be Paid")
+
+            })
     }
     async function delCart() {
         const response = await deleteAllCart();
@@ -117,7 +119,7 @@ const Checkout = () => {
         setcartPrice("0");
         setcartCounter("0");
 
-      }
+    }
 
 
     const user = {

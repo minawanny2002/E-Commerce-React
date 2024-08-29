@@ -33,7 +33,7 @@ function App() {
   const myRouter = createHashRouter([
     {
       
-      path: "",
+      path: "/",
       element: <Layout />,
       errorElement:<Error/>,
       children: [
@@ -44,7 +44,7 @@ function App() {
         { path: "categories", element: <ProtectedRoute><Categories /></ProtectedRoute> },
         { path: "wishlist", element: <ProtectedRoute><WishList /></ProtectedRoute> },
         { path: "checkout", element: <ProtectedRoute><Checkout /></ProtectedRoute> },
-        { path: "allorders", element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
+        { path: 'allorders', element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
         { path: "orderproducts/:orderNumber", element: <ProtectedRoute><OrderProducts /></ProtectedRoute> },  
         { path: "productdetails/:id/:category", element: <ProtectedRoute><ProductDetails /></ProtectedRoute> },
       ]
