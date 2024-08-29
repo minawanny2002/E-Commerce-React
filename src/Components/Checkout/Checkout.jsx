@@ -36,7 +36,10 @@ const Checkout = () => {
 
         } else if (formValues.submitType === "online") {
             console.log("onlineeeeeeee");
-            onlinePayment(formValues, window.location.hostname==="minawanny2002.github.io" ? "http://"+window.location.hostname+"/E-Commerce-React/#/allorders"   :   "http://"+window.location.hostname+"/E-Commerce-React");
+            onlinePayment(formValues, 
+                window.location.hostname==="localhost" 
+                ? "http://" + window.location.hostname+ ":5176"   
+                : "http://" + window.location.hostname + "/E-Commerce-React");
 
         }
 
