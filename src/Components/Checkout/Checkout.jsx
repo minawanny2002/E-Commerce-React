@@ -39,7 +39,7 @@ const Checkout = () => {
             onlinePayment(formValues, 
                 window.location.hostname==="localhost" 
                 ? "http://" + window.location.hostname+ ":5176"   
-                : "http://" + window.location.hostname + "/E-Commerce-React");
+                : "http://" + window.location.hostname );
 
         }
 
