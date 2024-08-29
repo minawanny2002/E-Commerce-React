@@ -36,7 +36,7 @@ const Checkout = () => {
 
         } else if (formValues.submitType === "online") {
             console.log("onlineeeeeeee");
-            onlinePayment(formValues, 'https://www.google.com');
+            onlinePayment(formValues, "https://minawanny2002.github.io/E-Commerce-React/#");
 
         }
 
@@ -101,7 +101,7 @@ const Checkout = () => {
                 if (apiResponse.data.status == 'success') {
                     console.log(apiResponse.data.session.url);
                     
-                    // window.location.href = apiResponse.data.session.url;
+                    window.location.href = apiResponse.data.session.url;
                 }
                 setisLoading2(false)
                 // cartOfUser();
